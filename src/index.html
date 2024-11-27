@@ -27,24 +27,144 @@
   </head>
   <body class="">
     <script>
-      var score = 0
-      var index = 0
-      const correctArray1 = [
+      var score = 0;
+      var index = 0;
+
+      const correctAnswers = [
         {
+          name: "Erlang",
+          img: "https://upload.wikimedia.org/wikipedia/commons/4/42/Erlang_logo.png?20100208012310",
+          long_description:
+            "Erlang is a programming language used to build massively scalable soft real-time systems with requirements on high availability. Some of its uses are in telecoms, banking, e-commerce, computer telephony and instant messaging. Erlang's runtime system has built-in support for concurrency, distribution and fault tolerance.",
+          link: "https://www.erlang.org/",
+          code: `-module(hello).
+	-export([hello_world/0]).
+
+	hello_world() -> io:fwrite("hello, world\\n").`,
+        },
+        {
+          name: "Pony",
+          img: "https://www.ponylang.io/assets/logo.png",
+          long_description:
+            "Pony is an open-source, object-oriented, actor-model, capabilities-secure, high-performance programming language.",
+          link: "https://www.ponylang.io/",
+          code: `actor Main
+  new create(env: Env) =>
+    env.out.print("Hello, world!")`,
+        },
+        {
+          name: "Nim",
+          img: "https://nim-lang.org/assets/img/twitter_banner.png",
+          long_description:
+            "Nim is a statically typed compiled systems programming language. It combines successful concepts from mature languages like Python, Ada and Modula.",
+          link: "https://nim-lang.org/",
+          code: `echo "Hello World"`,
+        },
+        {
+          name: "R",
+          img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/1200px-R_logo.svg.png",
+          long_description:
+            "R is a language and environment for statistical computing and graphics. It is a GNU project which is similar to the S language and environment which was developed at Bell Laboratories (formerly AT&T, now Lucent Technologies) by John Chambers and colleagues. R can be considered as a different implementation of S. ",
+          link: "https://www.r-project.org/about.html",
+          code: `print("HelloWorld") `,
+        },
+        {
+          name: "Ada",
+          img: "https://blog.adacore.com/uploads/photos/_1800xAUTO_crop_center-center_none/ada-png-black-transparent_square.png",
+          long_description:
+            "An Ada program is composed of one or more program units. Program units can be subprograms, packages, task units, protected units, or generic units. Each program unit normally consists of two parts: a specification, containing the information that is visible to other units, and a body, containing the implementation details, which are not visible to other units. Most program units can be compiled separately.",
+          link: "https://ada-lang.io/",
+          code: `with Ada.Text_IO;
+
+procedure My_Hello_World is
+begin
+   Ada.Text_IO.Put_Line ("Hello, World!");
+end My_Hello_World;`,
+        },
+      ];
+
+      const option1 = [
+        {
+          name: "Erlang",
+          description:
+            "A functional language designed for building highly concurrent, distributed systems, commonly used in telecoms.",
+          link: "",
+          correct: true,
+        },
+        {
+          name: "Piro",
+          description:
+            "A language for creating lightweight shaders in small-scale game engines or VR projects.",
+          link: "",
+          correct: false,
+        },
+        {
+          name: "Zeph",
+          description:
+            "A reactive programming language for creating highly responsive web interfaces and IoT applications.",
+          link: "",
+          correct: false,
+        },
+        {
+          name: "R",
+          description:
+            "A programming language focused on statistical computing and data visualization, widely used in academia and research.",
+          link: "",
+          correct: true,
+        },
+        {
+          name: "Ada",
+          description:
+            "A statically typed language designed for mission-critical systems like aerospace and defense.",
+          link: "",
           correct: true,
         },
       ];
-      const correctArray2 = [
+      const option2 = [
         {
+          name: "LatticeQL",
+          description:
+            "A quantum-inspired query language for manipulating data in non-traditional database structures.",
+          link: "",
+          correct: false,
+        },
+        {
+          name: "Pony",
+          description:
+            "A language for building concurrent applications with type-safe and memory-efficient features.",
+          link: "",
+          correct: true,
+        },
+        {
+          name: "Nim",
+          description:
+            "A statically typed language with Python-like syntax, optimized for performance and compiled to C.",
+          link: "",
+          correct: true,
+        },
+        {
+          name: "HexaCode",
+          description:
+            "A futuristic cryptography-focused language for building secure communication protocols and blockchain applications.",
+          link: "",
+          correct: false,
+        },
+        {
+          name: "Verox",
+          description:
+            "A performance-oriented language for building ultra-fast server-side applications with built-in parallelism.",
+          link: "",
           correct: false,
         },
       ];
 
+      
+
       function answer(num) {
         if (num === 1) {
-          correctAnswer = correctArray1[index].correct;
+          correctAnswer = option1[index].correct;
         } else {
-          correctAnswer = correctArray2[index].correct;
+          correctAnswer = option2[index].correct;
         }
         console.log(correctAnswer);
         if (correctAnswer) {
@@ -56,25 +176,70 @@
         showAnswer(correctAnswer);
       }
 
+      function next() {
+
+        if (index === 4){
+          window.location = "asd"
+        }
+
+        index+= 1
+        const button1 = document.getElementById("button1");
+        const button2 = document.getElementById("button2");
+
+        const div1 = document.getElementById("answerDiv1");
+        const div2 = document.getElementById("answerDiv2");
+
+        div1.classList.remove("opacity-100");
+        div2.classList.remove("opacity-100");
+
+        button1.disabled = false;
+        button2.disabled = false;
+
+        const nextButton = document.getElementById("next-button")
+        nextButton.disabled = true
+
+        optionName1 = document.getElementById("option-name1");
+        optionName1.innerText = option1[index].name;
+        optionDescription1 = document.getElementById("option-description1");
+        optionDescription1.innerText = option1[index].description;
+
+        optionName2 = document.getElementById("option-name2");
+        optionName2.innerText = option2[index].name;
+        optionDescription2 = document.getElementById("option-description2");
+        optionDescription2.innerText = option2[index].description;
+      }
+
       function showAnswer(correct) {
+        const nextButton = document.getElementById("next-button")
+        nextButton.disabled = false
+
         const div1 = document.getElementById("answerDiv1");
         const div2 = document.getElementById("answerDiv2");
 
         const button1 = document.getElementById("button1");
         const button2 = document.getElementById("button2");
 
-        const scoreText = document.getElementById("scoreText")
-        
+        const scoreText = document.getElementById("scoreText");
+
+        const langTitle = document.getElementById("langTitle");
+        const langDescription = document.getElementById("langDescription");
+        const langCode = document.getElementById("langCode");
+        const langImg = document.getElementById("langImg");
+
+        langImg.src = correctAnswers[index].img;
+        langTitle.innerText = correctAnswers[index].name;
+        langDescription.innerText = correctAnswers[index].long_description;
+        langCode.innerText = correctAnswers[index].code;
 
         button1.disabled = true;
         button2.disabled = true;
-        
+
         div1.classList.add("opacity-100");
         div2.classList.add("opacity-100");
 
         if (correct) {
-          score += 1
-          scoreText.innerText = score
+          score += 1;
+          scoreText.innerText = score;
           div1.innerText = "Correct";
           div1.classList.remove(
             "bg-red-400",
@@ -105,7 +270,6 @@
           div2.classList.add("border-red-500", "shadow-red-500/20");
           div2.classList.remove("border-green-500", "shadow-green-500/20");
         }
-        
       }
     </script>
 
@@ -126,7 +290,7 @@
       class="bg-sky-400 w-fit mx-auto text-white mt-10 px-3 py-2 rounded-lg text-center shadow-lg shadow-sky-500/30"
     >
       <p class="font-semibold">Your Score</p>
-      <p class="font-extrabold text-lg" id="scoreText">0</p>
+      <p class="font-extrabold text-2xl" id="scoreText">0</p>
     </div>
 
     <div class="grid grid-cols-2 w-3/6 mx-auto gap-5 mt-10 mb-20">
@@ -155,6 +319,8 @@
       </button>
 
       <button
+        disabled
+        onclick="next()"
         id="next-button"
         class="bg-blue-400 w-fit mx-auto text-white mt-5 px-10 py-2 rounded-full text-center shadow-lg border-2 border-blue-500 shadow-blue-500/30 col-span-2 hover:scale-105 transition-all hover:shadow-blue-500/50"
       >
@@ -170,27 +336,14 @@
         id="answerDiv2"
         class="opacity-0 transition-all duration-700 col-span-2 bg-white py-5 px-10 rounded-lg border-2 shadow-lg"
       >
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/4/42/Erlang_logo.png?20100208012310"
-          alt=""
-          class="h-20 mx-auto"
-        />
+        <img id="langImg" src="" alt="" class="h-20 mx-auto" />
         <p
+          id="langTitle"
           class="bg-clip-text text-transparent bg-gradient-to-r from-sky-400 to-blue-400 text-4xl font-bold text-center group-hover:text-white mt-3"
-        >
-          Erlang
-        </p>
+        ></p>
         <div class="grid grid-cols-2 mt-2 gap-5 font-medium py-5">
           <div>
-            <p class="text-sm">
-              Erlang is a programming language used to build massively scalable
-              soft real-time systems with requirements on high availability.
-              Some of its uses are in telecoms, banking, e-commerce, computer
-              telephony and instant messaging. Erlang's runtime system has
-              built-in support for concurrency, distribution and fault
-              tolerance.
-              <!-- https://www.erlang.org/ -->
-            </p>
+            <p class="text-sm" id="langDescription"></p>
             <button
               class="group shadow-md border hover:border-0 hover:shadow-sky-500/30 hover:scale-105 hover:bg-sky-400 font-bold mt-5 px-5 py-2 rounded-full transition-all"
             >
@@ -206,13 +359,9 @@
           >
             <p class="text-center">Hello World in Erlang</p>
             <div
+              id="langCode"
               class="bg-slate-500 source-code-pro py-1 px-3 my-2 rounded-lg border-2 border-slate-400 text-sm"
-            >
-              -module(hello). <br />
-              -export([hello_world/0]). <br /><br />
-
-              hello_world() -> io:fwrite("hello, world\n").
-            </div>
+            ></div>
           </div>
         </div>
       </div>
