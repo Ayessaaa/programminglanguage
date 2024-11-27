@@ -160,6 +160,9 @@ end My_Hello_World;`,
       ];
 
       function answer(num) {
+        const langImg = document.getElementById("langImg");
+        langImg.src = correctAnswers[index].img;
+
         if (num === 1) {
           correctAnswer = option1[index].correct;
         } else {
@@ -223,11 +226,9 @@ end My_Hello_World;`,
         const langTitle = document.getElementById("langTitle");
         const langDescription = document.getElementById("langDescription");
         const langCode = document.getElementById("langCode");
-        const langImg = document.getElementById("langImg");
         const helloworld = document.getElementById("helloworld");
         const documentation = document.getElementById("documentation");
 
-        langImg.src = correctAnswers[index].img;
         langTitle.innerText = correctAnswers[index].name;
         langDescription.innerText = correctAnswers[index].long_description;
         langCode.innerText = correctAnswers[index].code;
