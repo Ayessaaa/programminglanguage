@@ -27,6 +27,7 @@
   </head>
   <body class="">
     <script>
+      console.log(sessionStorage.getItem("name"));
       var score = 0;
       var index = 0;
 
@@ -158,8 +159,6 @@ end My_Hello_World;`,
         },
       ];
 
-      
-
       function answer(num) {
         if (num === 1) {
           correctAnswer = option1[index].correct;
@@ -177,12 +176,12 @@ end My_Hello_World;`,
       }
 
       function next() {
-
-        if (index === 4){
-          window.location = "asd"
+        if (index === 4) {
+          sessionStorage.setItem("score", score);
+          window.location = "done.html";
         }
 
-        index+= 1
+        index += 1;
         const button1 = document.getElementById("button1");
         const button2 = document.getElementById("button2");
 
@@ -195,8 +194,8 @@ end My_Hello_World;`,
         button1.disabled = false;
         button2.disabled = false;
 
-        const nextButton = document.getElementById("next-button")
-        nextButton.disabled = true
+        const nextButton = document.getElementById("next-button");
+        nextButton.disabled = true;
 
         optionName1 = document.getElementById("option-name1");
         optionName1.innerText = option1[index].name;
@@ -210,8 +209,8 @@ end My_Hello_World;`,
       }
 
       function showAnswer(correct) {
-        const nextButton = document.getElementById("next-button")
-        nextButton.disabled = false
+        const nextButton = document.getElementById("next-button");
+        nextButton.disabled = false;
 
         const div1 = document.getElementById("answerDiv1");
         const div2 = document.getElementById("answerDiv2");
@@ -225,11 +224,15 @@ end My_Hello_World;`,
         const langDescription = document.getElementById("langDescription");
         const langCode = document.getElementById("langCode");
         const langImg = document.getElementById("langImg");
+        const helloworld = document.getElementById("helloworld");
+        const documentation = document.getElementById("documentation");
 
         langImg.src = correctAnswers[index].img;
         langTitle.innerText = correctAnswers[index].name;
         langDescription.innerText = correctAnswers[index].long_description;
         langCode.innerText = correctAnswers[index].code;
+        helloworld.innerText = "Hello World in " + correctAnswers[index].name;
+        documentation.href = correctAnswers[index].link
 
         button1.disabled = true;
         button2.disabled = true;
@@ -347,17 +350,17 @@ end My_Hello_World;`,
             <button
               class="group shadow-md border hover:border-0 hover:shadow-sky-500/30 hover:scale-105 hover:bg-sky-400 font-bold mt-5 px-5 py-2 rounded-full transition-all"
             >
-              <span
+              <a href="" id="documentation"
                 class="bg-clip-text text-transparent bg-gradient-to-r from-sky-400 to-blue-400 group-hover:text-white"
               >
                 Go to Documentation >
-              </span>
+              </a>
             </button>
           </div>
           <div
             class="bg-slate-700 border-2 border-slate-500 rounded-lg py-2 px-5 text-white h-fit"
           >
-            <p class="text-center">Hello World in Erlang</p>
+            <p class="text-center" id="helloworld"></p>
             <div
               id="langCode"
               class="bg-slate-500 source-code-pro py-1 px-3 my-2 rounded-lg border-2 border-slate-400 text-sm"

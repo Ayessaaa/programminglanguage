@@ -25,5 +25,50 @@
       }
     </style>
   </head>
-  <body class=""></body>
+  <body class="">
+    <script>
+      const submit = () => {
+        const username = document.getElementById("username").value;
+        sessionStorage.setItem("name", username);
+        window.location.href = "index.html"
+      };
+    </script>
+
+    <div class="text-5xl font-bold mx-auto w-fit mt-10 text-center">
+      <span
+        class="bg-clip-text text-transparent bg-gradient-to-r from-sky-400 to-blue-400"
+      >
+        Code OR Fiction </span
+      ><br />
+      <span class="text-3xl font-semibold text-sky-400"
+        >Can You Spot the Real</span
+      ><span class="text-4xl font-bold text-blue-400">
+        Programming Language?</span
+      >
+    </div>
+
+    <div
+      class="w-96 bg-sky-400 mx-auto py-3 px-5 rounded-lg border-2 border-sky-500 shadow-lg shadow-sky-500/40 mt-32 hover:scale-105 transition-all"
+    >
+      <label class="text-white font-bold text-2xl">Enter your Username: </label>
+      <input
+        id="username"
+        placeholder="Username"
+        class="font-medium rounded-md w-full py-1 px-3 mt-3 mb-2 hover:bg-blue-100 focus:ring-2 focus:outline-none focus:ring-blue-500 focus:bg-blue-200 focus:placeholder-blue-500/50 placeholder-sky-500/50 transition-all"
+      />
+    </div>
+
+    <div class="w-fit mx-auto">
+      <button
+        onclick="submit()"
+        class="bg-white px-5 py-1 mx-auto rounded-md w-fit border-2 border-blue-500 shadow-lg shadow-blue-500/40 mt-8 group hover:bg-blue-400 hover:border-blue-600 transition-all hover:scale-105 hover:shadow-blue-500/50"
+      >
+        <p
+          class="bg-clip-text text-transparent bg-gradient-to-r from-sky-400 to-blue-400 font-bold text-lg group-hover:text-white transition"
+        >
+          Submit
+        </p>
+      </button>
+    </div>
+  </body>
 </html>
