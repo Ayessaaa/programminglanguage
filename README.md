@@ -44,6 +44,9 @@ npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
 ### End Page
 ![3dg6](https://github.com/user-attachments/assets/dc0473b9-1d54-4e09-80ce-34aa1912adc3)
 
+## Acknowledgements
+**Background IMG used**: [https://drive.google.com/drive/folders/1IXoIh5KCcJOQQ1GvC2vxpE0fehX6XenB](https://drive.google.com/drive/folders/1IXoIh5KCcJOQQ1GvC2vxpE0fehX6XenB)
+
 ## Contributing
 This repo is open for contributions! Just fork the repository, create a new branch and open a pull request.
 
