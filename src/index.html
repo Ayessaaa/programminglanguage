@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Code or Fiction</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./output.css" rel="stylesheet" />
@@ -14,9 +15,6 @@
     <style>
       body {
         font-family: "Poppins";
-        background-image: url(imgs/bg.jpg);
-        background-size: cover;
-        background-repeat: no-repeat;
       }
       .source-code-pro {
         font-family: "Source Code Pro", monospace;
@@ -25,7 +23,7 @@
       }
     </style>
   </head>
-  <body class="">
+  <body class="bg-gradient-to-r from-sky-300 via-white to-blue-300 h-screen overflow-hidden">
     <script>
       console.log(sessionStorage.getItem("name"));
       var score = 0;
@@ -338,7 +336,7 @@ end My_Hello_World;`,
 
       <div
         id="answerDiv2"
-        class="opacity-0 transition-all duration-700 col-span-2 bg-white py-5 px-10 rounded-lg border-2 shadow-lg"
+        class="opacity-0 transition-all duration-700 col-span-2 bg-white py-5 px-10 rounded-lg border-2 shadow-lg mb-10"
       >
         <img id="langImg" src="" alt="" class="h-20 mx-auto" />
         <p
