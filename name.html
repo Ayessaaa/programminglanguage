@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Code or Fiction</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: "Poppins";
+      }
+      .source-code-pro {
+        font-family: "Source Code Pro", monospace;
+        font-optical-sizing: auto;
+        font-style: normal;
+      }
+    </style>
+  </head>
+  <body class="bg-gradient-to-r from-sky-300 via-white to-blue-300 h-screen overflow-hidden">
+    <script>
+      const submit = () => {
+        const username = document.getElementById("username").value;
+        sessionStorage.setItem("name", username);
+        window.location.href = "index.html"
+      };
+    </script>
+
+    <div class="text-5xl font-bold mx-auto w-fit mt-10 text-center">
+      <span
+        class="bg-clip-text text-transparent bg-gradient-to-r from-sky-400 to-blue-400"
+      >
+        Code OR Fiction </span
+      ><br />
+      <span class="text-3xl font-semibold text-sky-400"
+        >Can You Spot the Real</span
+      ><span class="text-4xl font-bold text-blue-400">
+        Programming Language?</span
+      >
+    </div>
+
+    <div
+      class="w-96 bg-sky-400 mx-auto py-3 px-5 rounded-lg border-2 border-sky-500 shadow-lg shadow-sky-500/40 mt-32 hover:scale-105 transition-all"
+    >
+      <label class="text-white font-bold text-2xl">Enter your Username: </label>
+      <input
+        id="username"
+        placeholder="Username"
+        class="font-medium rounded-md w-full py-1 px-3 mt-3 mb-2 hover:bg-blue-100 focus:ring-2 focus:outline-none focus:ring-blue-500 focus:bg-blue-200 focus:placeholder-blue-500/50 placeholder-sky-500/50 transition-all"
+      />
+    </div>
+
+    <div class="w-fit mx-auto">
+      <button
+        onclick="submit()"
+        class="bg-white px-5 py-1 mx-auto rounded-md w-fit border-2 border-blue-500 shadow-lg shadow-blue-500/40 mt-8 group hover:bg-blue-400 hover:border-blue-600 transition-all hover:scale-105 hover:shadow-blue-500/50"
+      >
+        <p
+          class="bg-clip-text text-transparent bg-gradient-to-r from-sky-400 to-blue-400 font-bold text-lg group-hover:text-white transition"
+        >
+          Submit
+        </p>
+      </button>
+    </div>
+  </body>
+</html>
