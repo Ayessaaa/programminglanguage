@@ -45,7 +45,11 @@ npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
 ![3dg6](https://github.com/user-attachments/assets/dc0473b9-1d54-4e09-80ce-34aa1912adc3)
 
 ## Acknowledgements
+The use of AI is implemented when generating fiction programming languages
+Real programming languages descriptions and code snippets used are from its official documentation.
+
 **Background IMG used**: [https://drive.google.com/drive/folders/1IXoIh5KCcJOQQ1GvC2vxpE0fehX6XenB](https://drive.google.com/drive/folders/1IXoIh5KCcJOQQ1GvC2vxpE0fehX6XenB)
+
 
 ## Contributing
 This repo is open for contributions! Just fork the repository, create a new branch and open a pull request.
